@@ -1,0 +1,6 @@
+#Geotag .middleColumn { min-height: 200px; }
+#Geotag .middleColumn #Geotag-lat,
+#Geotag .middleColumn #Geotag-long { width: 100px; }
+.latLongField_AddressSearch { margin-top: 10px; }
+.latLongField_Address { width: 50%; }
+.latLongField_Map { width: 250px; height: 187px; border: 1px solid black; float: right; }

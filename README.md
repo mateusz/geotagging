@@ -7,6 +7,7 @@
 ## Requirements
 
 * SilverStripe 2.4 or newer
+* Module folder has to be named "geotagging"
 
 ## Installation
 

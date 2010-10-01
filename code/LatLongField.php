@@ -34,8 +34,8 @@ class LatLongField extends CompositeField {
 	function FieldHolder() {
 		Requirements::javascript('sapphire/thirdparty/jquery-livequery/jquery.livequery.js');
 		Requirements::javascript('http://maps.google.com/maps/api/js?sensor=false');
-		Requirements::javascript('geomod/javascript/LatLongField.js');
-		Requirements::css('geomod/css/LatLongField.css');
+		Requirements::javascript('geotagging/javascript/LatLongField.js');
+		Requirements::css('geotagging/css/LatLongField.css');
 
 		$field = $this->customise(array(
 			'LatField' => $this->latField->Field(),

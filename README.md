@@ -14,6 +14,6 @@ The module comes preconfigured, with extension added to SiteTree to enable
 geotagging on *all* pages. If you wish to apply the extension only to some pages
 remove it and re-apply:
 
-Object::remove_extension('SiteTree', 'Geotagged');
+Object::remove_extension('SiteTree', 'Geotagged'); 
 Object::add_extension('X', 'Geotagged');
 

@@ -15,7 +15,7 @@ class Geotagged extends DataObjectDecorator {
 	}
 
 	/**
-	 * Get DataObjects within a degree range, calculating geo-distance. Generic trans-database function.
+	 * Get DataObjects within a degree range, calculating geo-distance. Slow and tested only on MySQL
 	 * 
 	 * @param $class Class to get
 	 * @param $lat Latitude in degrees

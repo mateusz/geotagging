@@ -10,6 +10,12 @@ class Geotagged extends DataObjectDecorator {
 		);
 	}
 
+	static $defaults = array(
+		"Lat" => null,
+		"Long" => null
+	);
+	
+
 	function updateCMSFields(&$fields) {
 		$fields->addFieldToTab('Root.Content.Geotag', new LatLongField('Lat', 'Long', 'Geotag'));
 	}

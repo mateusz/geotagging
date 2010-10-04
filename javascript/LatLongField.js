@@ -62,26 +62,35 @@
 			return;
 		}
 
-		if (lat.val() && lon.val()) var latLng = new google.maps.LatLng(lat.val(), lon.val());
-		else var latLng = new google.maps.LatLng('-41.28648', '174.776217');
-
-		handleReverseGeocoding(latLng);
+		var defaultLatLng = new google.maps.LatLng('-41.28648', '174.776217');
 
 		var options = {
 			zoom: 14,
 			mapTypeControl: false,
 			scrollwheel:false,
-			center: latLng,
+			center: defaultLatLng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 
 		googleMap = new google.maps.Map(map[0], options);
 
 		googleMarker = new google.maps.Marker({
-			position: latLng,
+			position: defaultLatLng,
 			map: googleMap,
 			draggable: true
 		});
+
+		if (lat.val()!=0 || lon.val()!=0 ) {
+			var latLng = new google.maps.LatLng(lat.val(), lon.val());
+
+			googleMap.setCenter(latLng);
+			googleMarker.setPosition(latLng);
+			handleReverseGeocoding(latLng);
+		}
+		else {
+			lat.val('');
+			lon.val('');
+		}
 
 		// Event bindings follow
 

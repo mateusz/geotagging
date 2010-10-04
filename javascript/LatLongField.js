@@ -19,12 +19,14 @@
 		function handleSearch() {
 			if (!google) {
 				message.html('Geocoding server is not reachable. Please reload the page to try again.').show();
+				message.addClass('failure');
 				return;
 			}
 
 			googleGeocoder.geocode( { 'address': address.val() }, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					message.html('Found: '+results[0].formatted_address).show();
+					message.removeClass('failure');
 					lat.val(results[0].geometry.location.lat());
 					lon.val(results[0].geometry.location.lng());
 						
@@ -36,6 +38,8 @@
 				}
 				else {
 					message.html('Location not found, please try again.').show();
+					message.addClass('failure');
+					address.select();
 				}
 			});
 		}
@@ -59,6 +63,7 @@
 		// Initialise the google map and marker
 		if (!google) {
 			map.html('Map server is not reachable. Please reload the page to try again.');
+			message.addClass('failure');
 			return;
 		}
 

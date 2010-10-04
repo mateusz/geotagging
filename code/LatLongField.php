@@ -13,8 +13,8 @@ class LatLongField extends CompositeField {
 	 * We are a composite field, but pretend we are a normal field.
 	 */
 	function __construct($nameLat, $nameLong, $name) {
-		$this->latField = new TextField($nameLat, false);
-		$this->longField = new TextField($nameLong, false);
+		$this->latField = new TextField($nameLat, 'Latitude');
+		$this->longField = new TextField($nameLong, 'Longitude');
 		$this->name = $name;
 
 		parent::__construct(array($this->latField, $this->longField));
@@ -29,7 +29,7 @@ class LatLongField extends CompositeField {
 	}
 
 	/**
-	 * Render the field using custom template. It includes Google map and geocoding scripts.
+	 * Render the field using custom template.
 	 */
 	function FieldHolder() {
 		Requirements::javascript('sapphire/thirdparty/jquery-livequery/jquery.livequery.js');
@@ -46,4 +46,15 @@ class LatLongField extends CompositeField {
 		return $field;
 	}
 
+	/**
+	 * Provide regular readonly version for page version history and other in-built use cases.
+	 */
+	function performReadonlyTransformation() {
+		$field = new CompositeField();
+		$field->push($this->latField->performReadonlyTransformation());
+		$field->push($this->longField->performReadonlyTransformation());
+		$field->setForm($this->form);
+		$field->addExtraClass('latLongField_readonly');
+		return $field;
+	}
 }

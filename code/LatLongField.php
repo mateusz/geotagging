@@ -33,7 +33,6 @@ class LatLongField extends CompositeField {
 	 */
 	function FieldHolder() {
 		Requirements::javascript('sapphire/thirdparty/jquery-livequery/jquery.livequery.js');
-		Requirements::javascript('http://maps.google.com/maps/api/js?sensor=false');
 		Requirements::javascript('geotagging/javascript/LatLongField.js');
 		Requirements::css('geotagging/css/LatLongField.css');
 
